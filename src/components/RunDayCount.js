@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../stylesheets/ui.scss'
 
 class RunDayCount extends Component {
   render() {

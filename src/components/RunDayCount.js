@@ -1,6 +1,7 @@
 import React from 'react'
 import '../stylesheets/ui.scss'
-
+import {FaCalendarAlt} from 'react-icons/fa'
+import {IoMdRainy , IoIosSunny} from 'react-icons/io'
 
 
   const percentToDecimal = (decimal) => {
@@ -16,14 +17,17 @@ import '../stylesheets/ui.scss'
       <div className="run-day-count">
         <div className="total-days">
           <span>{total}</span>
+          <FaCalendarAlt />
           <span>days</span>
         </div>
         <div className="rain-days">
           <span>{rainDay}</span>
+          <IoMdRainy /> 
           <span>days</span>
         </div>
         <div className="dry-days">
           <span>{dryDay}</span>
+          <IoIosSunny />
           <span>days</span>
         </div>
         <div>

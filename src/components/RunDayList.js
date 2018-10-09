@@ -2,6 +2,7 @@ import React from 'react';
 import {FaCalendarAlt} from 'react-icons/fa'
 import {IoMdRainy , IoIosSunny} from 'react-icons/io'
 import {RunDayRow} from './RunDayRow'
+import {PropTypes} from 'prop-types'
 
 export const RunDayList = ({days}) => (
   <table>
@@ -25,4 +26,20 @@ export const RunDayList = ({days}) => (
   </table>
 
 )
+
+RunDayList.propTypes = {
+  days: function(props) {
+    if (!Array.isArray(props.days)) {
+      return new Error(
+        "RunDayList must have at least one record"
+      )
+    } else if(!props.days.length) {
+      return new Error(
+        "RunDayList must have at least one record"
+      )
+    } else {
+      return null
+    }
+  }
+}
 

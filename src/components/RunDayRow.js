@@ -1,7 +1,7 @@
 import React from 'react';
 import {FaCalendarAlt} from 'react-icons/fa'
 import {IoMdRainy , IoIosSunny} from 'react-icons/io'
-
+import {PropTypes} from 'prop-types'
 
 export const RunDayRow = ({location, date, 
                            rainDay, dryDay}) => (
@@ -20,5 +20,12 @@ export const RunDayRow = ({location, date,
       {(rainDay) ? <IoMdRainy /> : null}
     </td>
   </tr>
-
 )
+
+RunDayRow.propTypes = {
+  location: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
+  rainDay: PropTypes.bool,
+  dryDay: PropTypes.bool
+
+}

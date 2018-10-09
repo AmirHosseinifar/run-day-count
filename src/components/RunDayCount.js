@@ -1,4 +1,5 @@
 import React from 'react'
+import {PropTypes} from 'prop-types'
 import '../stylesheets/ui.scss'
 import {FaCalendarAlt} from 'react-icons/fa'
 import {IoMdRainy , IoIosSunny} from 'react-icons/io'
@@ -37,6 +38,12 @@ import {IoMdRainy , IoIosSunny} from 'react-icons/io'
         </div>
       </div>
     )
+  }
+
+  RunDayCount.propTypes = {
+    total: PropTypes.number,
+    rainDay: PropTypes.number,
+    dryDay: PropTypes.number
   }
 
 

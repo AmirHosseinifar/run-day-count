@@ -13,7 +13,7 @@ import {IoMdRainy , IoIosSunny} from 'react-icons/io'
     return percentToDecimal(total/goal)
   }
 
-  const RunDayCount = ({total=50, rainDay=20,
+export const RunDayCount = ({total=50, rainDay=20,
                         dryDay=10, goal=80}) => {
     return (
       <div className="run-day-count">

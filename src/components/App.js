@@ -1,7 +1,7 @@
-
 import React from 'react';
 import {Component} from 'react'
-
+import {RunDayList} from './RunDayList'
+import {RunDayCount} from './RunDayCount'
 
 export class App extends Component {
   constructor(props) {
@@ -30,10 +30,18 @@ export class App extends Component {
     };
   }
 
+  countDays(filter) {
+    return this.state.allRunDays.filter(
+      (day) => (filter) ? day[filter] : day).length
+  }
+
   render() {
     return(
-      <div>
-        {this.state.allRunDays[1]["location"]} 
+      <div className="app">
+        <RunDayList days={this.state.allRunDays}/>
+        <RunDayCount total={this.countDays()}
+                     rainDay={this.countDays("rainDay")}
+                     dryDay={this.countDays("dryDay")}/>
       </div>
     )
   }

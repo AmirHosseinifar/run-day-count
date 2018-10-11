@@ -1,5 +1,4 @@
 import React from 'react';
-import {FaCalendarAlt} from 'react-icons/fa'
 import {IoMdRainy , IoIosSunny} from 'react-icons/io'
 import {PropTypes} from 'prop-types'
 

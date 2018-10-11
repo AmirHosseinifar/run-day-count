@@ -40,15 +40,18 @@ export class App extends Component {
   render() {
     return(
       <div className="app">
-      <Menu />``
+      <Menu />
       {(this.props.location.pathname === "/" ) ?
         <RunDayCount total={this.countDays()}
                      rainDay={this.countDays("rainDay")}
                      dryDay={this.countDays("dryDay")}/> :
        (this.props.location.pathname === "/add-day") ?
         <AddDayForm /> :
-        <RunDayList days={this.state.allRunDays}/>
+        <RunDayList days={this.state.allRunDays}
+                    // filter={this.props.params.filter}
+        />
       }
+
       </div>
     )
   }

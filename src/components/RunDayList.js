@@ -1,31 +1,49 @@
 import React from 'react';
-import {FaCalendarAlt} from 'react-icons/fa'
-import {IoMdRainy , IoIosSunny} from 'react-icons/io'
 import {RunDayRow} from './RunDayRow'
-import {PropTypes} from 'prop-types'
+import {Link} from 'react-router-dom'
 
-export const RunDayList = ({days}) => (
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Location</th>
-        <th>Dry Day</th>
-        <th>Rainy Day</th>
-      </tr>
-    </thead>
-    <tbody>
-      {days.map((day, i) =>
-        <RunDayRow key={i}
-                   date={day.date}
-                   location={day.location}
-                   rainDay={day.rainDay}
-                   dryDay={day.dryDay} />
-        )}
-    </tbody>
-  </table>
+export const RunDayList = ({days, filter}) => {
+  const filteredDays = (!filter ||
+        !filter.match(/rainDay|dryDay/)) ? 
+        days:
+        days.filter(day => day[filter])
 
-)
+  return(
+    <div className="run-day-list">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Dry Day</th>
+            <th>Rainy Day</th>
+          </tr>
+          <tr>
+            <td>
+              <td colSpan={4}>
+                <Link to="/list-days">
+                  All Days
+                </Link>
+                <Link to="/list-days/rainDay">
+                  Rainy Days
+                </Link>
+                <Link to="/list-days/dryDay">
+                  Dry Days
+                </Link>
+              </td>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredDays.map((day, i) =>
+            <RunDayRow key={i}
+                      {...day} />
+            )}
+        </tbody>
+      </table>
+    </div>
+  )
+}
 
 RunDayList.propTypes = {
   days: function(props) {

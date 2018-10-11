@@ -1,59 +1,54 @@
 import React from 'react'
-import {Component} from 'react'
 import {PropTypes} from 'prop-types'
 
-export class AddDayForm extends Component {
-
-  constructor(props) {
-    super(props)
-    this.submit = this.submit.bind(this)
-  }
-  
-  submit(e) {
+export const AddDayForm = ({location, 
+                            date, 
+                            rainDay, 
+                            dryDay}) => {
+  let _location, _date, _rainDay, _dryDay
+  const submit = (e) => {
     e.preventDefault()
-    console.log('location', this.refs.location.value)
-    console.log('date', this.refs.date.value)
-    console.log('rainDay', this.refs.rainDay.checked)
-    console.log('dryDay', this.refs.dryDay.checked)
+    console.log('location', _location.value)
+    console.log('date', _date.value)
+    console.log('rainDay', _rainDay.checked)
+    console.log('dryDay', _dryDay.checked)
   }
   
-  render() {
-    const {location, date, rainDay, dryDay} = this.props
-    return (
-      <form onSubmit={this.submit} className="add-day-form">
-        <label htmlFor="location">Location</label>
-        <input id="location" 
-               type="text" 
-               required 
-               defaultValue={location}
-               ref="location"/>
+  return (
+    <form onSubmit={submit} className="add-day-form">
+      <label htmlFor="location">Location</label>
+      <input id="location" 
+             type="text" 
+             required 
+             defaultValue={location}
+             ref={input => _location = input}/>
 
-        <label htmlFor="date">Date</label>
-        <input id="date" 
-               type="date" 
-               required 
-               defaultValue={date}
-               ref="date"/>
+      <label htmlFor="date">Date</label>
+      <input id="date" 
+             type="date" 
+             required 
+             defaultValue={date}
+             ref={input => _date = input}/>
 
-        <div>
-          <input id="rainDay" 
-                 type="checkbox" 
-                 defaultChecked={rainDay}
-                 ref="rainDay"/>
-          <label htmlFor="rainDay">Rainy Day</label>
-        </div>
-        <div>
-          <input id="dryDay" 
-                 type="checkbox" 
-                 defaultChecked={dryDay}
-                 ref="dryDay"/>
-          <label htmlFor="dryDay">Dry Day</label>
-        </div>
-        <button>Add Day</button>
-      </form>
-    )
-  }
+      <div>
+        <input id="rainDay" 
+               type="checkbox" 
+               defaultChecked={rainDay}
+               ref={input => _rainDay = input}/>
+        <label htmlFor="rainDay">Rainy Day</label>
+      </div>
+      <div>
+        <input id="dryDay" 
+               type="checkbox" 
+               defaultChecked={dryDay}
+               ref={input => _dryDay = input}/>
+        <label htmlFor="dryDay">Dry Day</label>
+      </div>
+      <button>Add Day</button>
+    </form>
+  )
 }
+
 
 AddDayForm.defaultProps = {
   location: "Vancouver",

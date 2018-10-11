@@ -6,8 +6,7 @@ export const RunDayRow = ({location, date,
                            rainDay, dryDay}) => (
   <tr>
     <td>
-      {date.getMonth()+1}/{date.getDate()}/
-		  {date.getFullYear()}
+      {date}
     </td>
     <td>
       {location}
@@ -23,7 +22,7 @@ export const RunDayRow = ({location, date,
 
 RunDayRow.propTypes = {
   location: PropTypes.string.isRequired,
-  date: PropTypes.instanceOf(Date).isRequired,
+  date: PropTypes.string.isRequired,
   rainDay: PropTypes.bool,
   dryDay: PropTypes.bool
 

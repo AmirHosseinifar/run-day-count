@@ -4,14 +4,22 @@ import {PropTypes} from 'prop-types'
 export const AddDayForm = ({location, 
                             date, 
                             rainDay, 
-                            dryDay}) => {
+                            dryDay,
+                            onNewDay}) => {
   let _location, _date, _rainDay, _dryDay
   const submit = (e) => {
     e.preventDefault()
-    console.log('location', _location.value)
-    console.log('date', _date.value)
-    console.log('rainDay', _rainDay.checked)
-    console.log('dryDay', _dryDay.checked)
+
+    onNewDay({
+      location: _location.value,
+      date: _date.value,
+      rainDay: _rainDay.checked,
+      dryDay: _dryDay.checked
+    })
+    _location.value = ""
+    _date.value = ""
+    _rainDay.checked = false
+    _dryDay.checked = false
   }
   
   return (
